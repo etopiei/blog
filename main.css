@@ -1,0 +1,93 @@
+.header {
+	font-size: 36px;
+	font-weight: bold;
+	background-color: #64B058;
+	margin-top: -20px;
+	margin-right: -10px;
+	margin-left: -10px;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+body {
+	background-color: #ECF5EB;
+}
+
+.back {
+	float: left;
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.forward {
+	float: right;
+	margin-right: 10px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.back-text {
+	float: left;
+	margin-left: -35px;
+	margin-top: 45px;
+	width: 24px;
+	height: 24px;
+}
+
+.forward-text {
+	float: right;
+	margin-right: -20px;
+	margin-top: 45px;
+	width: 24px;
+	height: 24px;
+}
+
+.back-text:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.forward-text:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.title-text {
+	font-size: 28px;
+	text-decoration: underline;
+	margin-top: 30px;
+}
+
+.blog-text {
+	padding: 30px;
+	width: 60%;
+}
+
+ .divider {
+    color: black;
+    background-color: black;
+    height: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .social {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-media {
+  	padding: 20px;
+  	margin-bottom: 40px;
+  }
+
+  a {
+  	text-decoration: underline;
+  	font-size: 12px;
+  	color: black;
+  }

@@ -1,0 +1,7 @@
+{
+	"posts":[
+		{"title":"Welcome to my blog", "contents":"This is my first blog post. So welcome and I hope you enjoy what I write here. It will mostly be things written for my own amusement and reflection, though hopefully you may find something interesting or helpful here."},
+		{"title":"Post 2", "contents":"Similar to the first post but with twice the excitement."},
+		{"title":"Testing Images", "contents":"Writing html from a JSON to create images in the blog.<br><img src='/img/yay.jpg'>"}
+	]
+}

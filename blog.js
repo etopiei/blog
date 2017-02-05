@@ -144,3 +144,85 @@ function goForward() {
  	});
 
 }
+
+function listPosts() {
+
+    loadJSON(function(response) {
+
+        // Parse JSON string into object
+        var jsonObject = JSON.parse(response);
+        var postsArray = [];
+
+        for (var key in jsonObject) {
+            if (jsonObject.hasOwnProperty(key)) {
+                for (var i = 0; i < jsonObject[key].length; i++) {
+                    var postTitle = jsonObject[key][i]['title'];
+                    postsArray.push(postTitle, i+1);
+                }
+            }
+        }
+
+        writeList(postsArray);
+
+    });
+
+}
+
+function writeList(postsArray){
+
+    var x = document.getElementById('contents');
+
+    html = "<h1>Post History</h1>";
+
+    for (var i = 0; i < (((postsArray.length)/2)+4); i = i + 2) {
+        html = html + "<a class='post-links' href='index.html?=" + postsArray[i+1] + "'>" + postsArray[i] + "</a><br>";
+    }
+
+    x.innerHTML = html;
+
+}
+
+function getParticularPost() {
+
+    var urlParameter = getParameterByName("?");
+
+    if (urlParameter > 0) {
+
+        //get JSON and use the post number from the url parameter to write the post to DOM
+
+        loadJSON(function(response) {
+
+            var jsonObject = JSON.parse(response);
+
+            var post = jsonObject.posts[urlParameter-1];
+
+            //check here that this post number actually exists
+
+            var postTitle = post['title'];
+            var postContents = post['contents'];
+
+            writePostAsDomElements(postTitle, postContents);
+            var hiddenNumber = document.getElementById('post-number');
+            hiddenNumber.value = urlParameter-1;
+
+        });
+
+    } else {
+
+        fetchJSON();
+
+    }
+
+}
+
+ function getParameterByName(name, url) {
+
+     if (!url) url = window.location.href;
+     name = name.replace(/[\[\]]/g, "\\$&");
+     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+         results = regex.exec(url);
+     if (!results) return null;
+     if (!results[2]) return '';
+     return decodeURIComponent(results[2].replace(/\+/g, " "));
+
+ }

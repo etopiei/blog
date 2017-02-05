@@ -91,3 +91,22 @@ body {
   	font-size: 12px;
   	color: black;
   }
+
+  .post-links {
+	  font-size: 24px;
+	  color: black;
+	  text-decoration: underline;
+  }
+
+  .post-links:hover {
+	  font-size: 24px;
+	  color: black;
+	  text-decoration: underline;
+	  font-style:  italic;
+  }
+
+  .history-link {
+      font-size: 12px;
+      color: #000;
+      text-decoration: underline;
+  }

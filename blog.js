@@ -174,7 +174,7 @@ function writeList(postsArray){
 
     html = "<h1>Post History</h1>";
 
-    for (var i = 0; i < (((postsArray.length)/2)+4); i = i + 2) {
+    for (var i = 0; i < (postsArray.length); i = i + 2) {
         html = html + "<a class='post-links' href='index.html?=" + postsArray[i+1] + "'>" + postsArray[i] + "</a><br>";
     }
 
@@ -197,6 +197,12 @@ function getParticularPost() {
             var post = jsonObject.posts[urlParameter-1];
 
             //check here that this post number actually exists
+
+            if (typeof jsonObject.posts[urlParameter-1] == "undefined") {
+                //don't get this post. instead load the latest.
+                fetchJSON();
+                return;
+            }
 
             var postTitle = post['title'];
             var postContents = post['contents'];

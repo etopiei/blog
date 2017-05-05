@@ -1,4 +1,4 @@
- function loadJSON(callback) {   
+ function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
@@ -14,7 +14,7 @@
 
     };
 
-    xobj.send(null);  
+    xobj.send(null);
 
  }
 
@@ -33,7 +33,7 @@ function fetchJSON() {
 
 function getLatestPost(jsonObject) {
 
-	var x = 1; 
+	var x = 1;
 
 	while (true) {
 
@@ -231,4 +231,4 @@ function getParticularPost() {
      if (!results[2]) return '';
      return decodeURIComponent(results[2].replace(/\+/g, " "));
 
- }
+}

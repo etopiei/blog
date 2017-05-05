@@ -1,1 +1,1 @@
-#blog - Made in JS, super simple and lightweight.
+#blog - Made in JS, super simple and lightweight. 

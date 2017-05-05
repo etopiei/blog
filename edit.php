@@ -2,6 +2,13 @@
 
 $username = $_POST["username"];
 $password = $_POST["password"];
+$contents = $_POST["contents"];
+
+if (isset($contents)) {
+	$editingDone = true;
+} else {
+	$editingDone = false;
+}
 
 $database="";
 $host = "";
@@ -39,7 +46,7 @@ try {
 	$fullPassword = $password.$salt;
 	$fullPassword = openssl_digest($fullPassword, 'sha512');
 
-	if ($fullPassword == $hashedPassword) {
+	if ($fullPassword === $hashedPassword) {
 
 		//user has correct username
 		//continue freely
@@ -68,40 +75,46 @@ try {
 
 }
 
-$content = $_POST["content"];
-$title = $_POST["title"];
+if ($editingDone === false) {
 
-//open blogPosts.json and add the newest post.
+	$content = $_POST["content"];
+	$title = $_POST["title"];
 
-$myfile = fopen("blogPosts.json", "r") or die("Unable to open file!");
+	//open blogPosts.json and retrieve the correct
 
-$fileContents = "";
+	$myfile = fopen("blogPosts.json", "r") or die("Unable to open file!");
 
-while(!feof($myfile)) {
+	$fileContents = "";
 
-	$buffer = fgets($myfile);
+	while(!feof($myfile)) {
 
-	if (strpos($buffer, ']') !== FALSE) {
-
-		list($before, $after) = explode(']', $buffer);
-
-		$fileContents = $fileContents.$before;
-		$fileContents = $fileContents.', {"title":"'.$title.'", "contents":"'.$content.'"}\n]';
-		$fileContents = $fileContents.$after;
-
+		$buffer = fgets($myfile);
+		$fileContents .= $buffer;
 	}
-	else {
 
-		$fileContents =  $fileContents.$buffer;
+	fclose($myfile);
 
-	}
+	$html = "<html>";
+	$html .= "<body>";
+	$html .= "<br><form id='submitForEdit' action='edit.php' method='post'>";
+	$html .= "Username: <input type='text' name='username'>";
+	$html .= "Password: <input type='text' name='password'>";
+	$html .= "<br><textarea name='contents' form='submitForEdit'>";
+	$html .= $fileContents;
+	$html .= "</textarea>";
+	$html .= "<input type='submit' value='Submit' name='submit'>";
+	$html .= "</body>";
+	$html .= "</html>";
+	echo $html;
+
+} else {
+
+	$editedFile = fopen("blogPosts.json", "w") or die("Unable to edit file!");
+	fwrite($editedFile, $contents);
+	echo "Editing Succesfull.";
+
 }
 
-fclose($myfile);
-
-$editedFile = fopen("blogPosts.json", "w") or die("Unable to edit file!");
-fwrite($editedFile, $fileContents);
-
-echo "New Blog Post Added";
+exit();
 
 ?>

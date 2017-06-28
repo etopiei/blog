@@ -1,8 +1,8 @@
- function loadJSON(callback) {
+ function loadJSON(callback) {   
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'blogPosts.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'blogPosts.json', true);
 
     xobj.onreadystatechange = function () {
 
@@ -14,7 +14,7 @@
 
     };
 
-    xobj.send(null);
+    xobj.send(null);  
 
  }
 
@@ -33,7 +33,7 @@ function fetchJSON() {
 
 function getLatestPost(jsonObject) {
 
-	var x = 1;
+	var x = 1; 
 
 	while (true) {
 
@@ -56,20 +56,27 @@ function getLatestPost(jsonObject) {
 
 function readJSON(jsonObject, latestPostNumber) {
 
-	writePostAsDomElements(jsonObject.posts[latestPostNumber].title, jsonObject.posts[latestPostNumber].contents);
+	writePostAsDomElements(jsonObject.posts[latestPostNumber].title, jsonObject.posts[latestPostNumber].contents, latestPostNumber);
 
 	var hiddenNumber = document.getElementById('post-number');
 	hiddenNumber.value = latestPostNumber;
 
 }
 
-function writePostAsDomElements(title, contents) {
+function writePostAsDomElements(title, contents, latestPostNumber) {
 
 	var titlePlace = document.getElementById('title');
 	titlePlace.innerHTML = title;
 
 	var contentsPlace = document.getElementById('contents');
 	contentsPlace.innerHTML = contents;
+
+    var linkToNextPost = document.createElement('a');
+    linkToNextPost.href = "http://blog.etopiei.xyz?=" + (parseInt(latestPostNumber) + 2);
+    linkToNextPost.innerText = "Next Post >>";
+
+    var next = document.getElementById('next');
+    next.appendChild(linkToNextPost);
 
 }
 
@@ -93,7 +100,7 @@ function goBack() {
     	if (typeof jsonObject.posts[newPostNumber] != "undefined") {
 
     		//Get Title and Contents from JSON Object and Write it to DOM
-    		writePostAsDomElements(jsonObject.posts[newPostNumber].title, jsonObject.posts[newPostNumber].contents);
+    		writePostAsDomElements(jsonObject.posts[newPostNumber].title, jsonObject.posts[newPostNumber].contents, newPostNumber);
     		var hiddenNumber = document.getElementById('post-number');
 			hiddenNumber.value = newPostNumber;
 
@@ -128,7 +135,7 @@ function goForward() {
 
     		//Get Title and Contents from JSON Object and Write it to DOM
 
-    		writePostAsDomElements(jsonObject.posts[newPostNumber].title, jsonObject.posts[newPostNumber].contents);
+    		writePostAsDomElements(jsonObject.posts[newPostNumber].title, jsonObject.posts[newPostNumber].contents, newPostNumber);
 
     		//change the post number hidden element.
 
@@ -207,9 +214,10 @@ function getParticularPost() {
             var postTitle = post['title'];
             var postContents = post['contents'];
 
-            writePostAsDomElements(postTitle, postContents);
             var hiddenNumber = document.getElementById('post-number');
             hiddenNumber.value = urlParameter-1;
+
+            writePostAsDomElements(postTitle, postContents, hiddenNumber.value);
 
         });
 
@@ -231,4 +239,8 @@ function getParticularPost() {
      if (!results[2]) return '';
      return decodeURIComponent(results[2].replace(/\+/g, " "));
 
-}
+ }
+
+ function subscribe() {
+
+ }

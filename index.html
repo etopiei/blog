@@ -8,14 +8,25 @@
 
 <body>
 
+	<div class="container">
+
+	<div class="logo-space">
+
+		<img id="logo" src="logo.png">
+
+	</div>
+
+	<div class="pre-header">
+		<p class="title"> Fuse Theory </p>
+
+		</div>
+
 	<div class="header">
 
-		<center>
-
-		<p class="title"> etopiei's blog </p>
-			<a class="history-link" href="list.html">Post History</a>
-
-		</center>
+		<p id="subtitle"> @etopiei's blog</p>
+			<a class="history-link" href="list.html">&#5125; Post History</a><br>
+			<a class="history-link" href="about.html">&#5125; About Me</a><br>
+			<a class="history-link" href="https://github.com/etopiei/">&#5125; Github</a>
 
 	</div>
 
@@ -23,16 +34,11 @@
 
 		<div class="navigation">
 
-			<!-- Inlcude in here title of current post, back and forward buttons -->
-
 			<img src="back.png" class="back">
 			<img src="forward.png" class="forward">
 			<a class="back-text" onclick="goBack()">Back</a>
 			<a class="forward-text" onclick="goForward()">Forward</a>
-
-			<center>
 			<p class="title-text" id="title"></p>
-			</center>
 
 			<!-- Hidden Input Field which holds the current post number -->
 
@@ -40,42 +46,75 @@
 
 		</div>
 
+		<div id="thisOne">
+
 		<div class="post">
 
 			<!-- This is where the post content goes -->
 
-			<center>
+			<br>
+			<p class="blog-text" id="contents"></p>
 
 			<br>
 
-			<p class="blog-text" id="contents"></p>
-			</center>
+			<div id="next">
+
+			</div>
+
+			<br>
+
+		</div>
 
 		</div>
 		
 		<hr class="divider">
 
-		<div class="social-media">
+	</div>
 
-			<!-- Navigation for the end of the article, forward, and back buttons and social media links-->
+	<div class="social-media">
 
-			<center>
+				<div class="social-holder">
 
-				<a href="#" class="subscribe-link"><img src="img/plus.png" class="social"><br>Subscribe</a>
+				<div class="social-item">
+					<a href="https://github.com/etopiei/" class="contact-text">
+					<img src="img/github.png" class="social">
+					<span class="caption">Github</span>
+					</a>
+				</div>
+				<div class="social-item">
+					<a href="https://twitter.com/etopiei" class="contact-text">
+					<img src="img/twitter.svg" class="social">
+					<span class="caption">Twitter</span>
+					</a>
+				</div>
+				<div class="social-item">
+					<a href="https://instagram.com/etopiei" class="contact-text">
+					<img src="img/instagram.png" class="social">
+					<span class="caption">Instagram</span>
+					</a>
+				</div>
+				<div class="social-item">
+					<a href="http://etopiei.xyz" class="contact-text">
+					<img src="img/portfolio.png" class="social">
+					<span class="caption">Portfolio</span>
+					</a>
+				</div>
+				<div class="social-item">
+					<a href="https://www.reddit.com/user/etopiei/" class="contact-text">
+					<img src="img/reddit.png" class="social">
+					<span class="caption">Reddit</span>
+					</a>
+				</div>
+				<div class="social-item">
+					<a href="https://au.linkedin.com/in/lachlan-jacob-a14895117" class="contact-text">
+					<img src="img/linkedin.svg" class="social">
+					<span class="caption">LinkedIn</span>
+					</a>
+				</div>
 
-				<br><br>
-
-			<a href="https://github.com/etopiei/" class="contact-text"> <img src="img/github.png" class="social"> Github </a>
-      		<a href="https://twitter.com/etopiei" class="contact-text"> <img src="img/twitter.svg" class="social"> Twitter</a>
-      		<a href="https://instagram.com/etopiei" class="contact-text"> <img src="img/instagram.png" class="social"> Instagram </a>
-      		<a href="http://etopiei.xyz" class="contact-text"> <img src="img/portfolio.png" class="social"> Portfolio </a>
-      		<a href="https://www.reddit.com/user/etopiei/" class="contact-text"> <img src="img/reddit.png" class="social"> Reddit</a>
-      		<a href="https://au.linkedin.com/in/lachlan-jacob-a14895117" class="contact-text"> <img src="img/linkedin.svg" class="social"> LinkedIn </a>
-
-      		</center>
+				</div>
 
 		</div>
-
 	</div>
 
 </body>

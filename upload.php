@@ -2,6 +2,7 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 $blogPost = $_POST['blog-post'];
+$title = $_POST['title'];
 
 $database="DATABASE_NAME";
 $host = "HOSTNAME";
@@ -76,7 +77,18 @@ if($files) {
 	$fileCount = count($files);
 }
 $fileCount += 1;
-$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$fileCount" + ".post"
+$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$fileCount" . ".post"
+
+//update meradata
+$metaName = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "metadata.post"
+$metaFile = fopen($metaName, "r");
+$metaContents = fread($metaFile, filesize($metaName));
+$metaContents = $metaContents . "\n" . "$fileCount" . " " . "$title";
+fclose($metaFile);
+
+$writeMeta = fopen($metaName, "w");
+fwrite($writeMeta, $metaContents);
+fclose($writeMeta);
 
 //now write blog post to file
 $myFile = fopen($filename, "w") or die ("Failed to write blog post to file.");

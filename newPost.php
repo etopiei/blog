@@ -18,7 +18,8 @@
 					<center>
 						<form id="uploadForm" action="upload.php" method="post">
 							Username: <input class="formElem" type="text" name="username"></input><br>
-							Password: <input class="formElem" type="password" name="password"></input><br><br>
+							Password: <input class="formElem" type="password" name="password"></input><br>
+							Title: <input class="formElem" type="text" name="title"></input><br><br>
 							New Post: <br><textarea name="blog-post" id="new-blog" class="formElem" form="uploadForm"></textarea><br>
 							<input class="formElem" type="submit" name="submit"></input>
 						</form>

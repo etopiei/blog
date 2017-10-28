@@ -1,8 +1,5 @@
 <?php 
 require("./getPost.php");
-$postId = $_GET['id'];
-$postNumber = 0;
-$postNumber = update($postId);
 ?>
 
 <html>
@@ -15,16 +12,17 @@ $postNumber = update($postId);
 			<div id="header-text">
 				<center>
 					<h1> Blog Title - Blog Subtitle </h1>
-					<h3><a href="history.php">Post History</a></h3>
+					<h3><a href="index.php">Back Home</a></h3>
 				</center>
 			</div>
 		</div>
 		<div id="content">
 			<div id="blog-text" class="shadow">
 				<div id="blog-text-offset">
-					<?php 
-					getPost($postNumber);
-					?>
+						<center>
+						<h4> Post History </h4>
+						<?php printPostList();?>
+						</center>
 				</div>
 			</div>
 		</div>

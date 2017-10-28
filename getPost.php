@@ -1,5 +1,24 @@
 <?php
 
+function getNavButtons($postNumber) {
+	if($postNumber != 0) {
+		$directory = "./posts/";
+		$fileCount = 0;
+		$files = glob($directory . "*");
+		if($files) {
+			$fileCount = count($files);		
+		}
+		if($postNumber != 1) {
+			$prevPost = $postNumber - 1;
+			echo "<a id='prev-link' href='index.php?id=" . $prevPost . "'> < Previous Post </a>";			
+		}
+		if($postNumber != $fileCount-1) {
+			$nextPost = $postNumber + 1;
+			echo "<a id='next-link' href='index.php?id=" . $nextPost . "'> Next Post > </a>"; 		
+		}
+	}
+}
+
 function printPostList() {
 	$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/metadata.post";
 	$lines = file($filename);

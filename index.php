@@ -21,6 +21,7 @@ $postNumber = update($postId);
 		</div>
 		<div id="content">
 			<div id="blog-text" class="shadow">
+			<?php getNavButtons($postNumber); ?>
 				<div id="blog-text-offset">
 					<?php 
 					getPost($postNumber);

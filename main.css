@@ -35,7 +35,7 @@
 	padding-left: 10%;
 	padding-right: 10%;
 	width: 80%;
-	height: 90%;
+	height: calc(100% - 6.5em);
 	background-color: #bfc7f2;
 	overflow: auto;
 }
@@ -79,4 +79,8 @@ h4 {
 
 a {
 	color: black;
+}
+
+#next-link {
+	float: right;
 }

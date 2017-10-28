@@ -1,4 +1,5 @@
 * {
+	font-family: Tahoma, Geneva, sans-serif;
 	padding: 0px;
 	margin: 0px;
 }
@@ -33,7 +34,8 @@
 	padding-left: 10%;
 	padding-right: 10%;
 	width: 80%;
-	overflow-y: scroll;
+	background-color: #bfc7f2;
+	overflow-y: none;
 }
 
 #bottom {
@@ -43,8 +45,24 @@
 	color: black;
 }
 
+.fa {
+	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+
 .shadow {
   -moz-box-shadow:    0px 12px 6px 12px #bfceef;
   -webkit-box-shadow: 0px 12px 6px 12px #bfceef;
   box-shadow:         0px 12px 6px 12px #bfceef;
+}
+
+.formElem {
+	margin-top: 2.5%;
+}
+
+#new-blog {
+	width: 80%;
+	height: 20%;
 }

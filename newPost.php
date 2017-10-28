@@ -1,13 +1,6 @@
-<?php 
-require("./getPost.php");
-$postId = $_GET['id'];
-$postNumber = 0;
-$postNumber = update($postId);
-?>
-
 <html>
 	<head>
-		<link href="main.css" rel="Stylesheet" type="text/css">
+		<link rel="Stylesheet" href="main.css" type="text/css">
 		<script src="https://use.fontawesome.com/9afece952d.js"></script>
 	</head>
 	<body>
@@ -21,10 +14,15 @@ $postNumber = update($postId);
 		</div>
 		<div id="content">
 			<div id="blog-text" class="shadow">
-				<div id="blog-text-offset">
-					<?php 
-					getPost($postNumber);
-					?>
+				<div id="upload-area">
+					<center>
+						<form id="uploadForm" action="upload.php" method="post">
+							Username: <input class="formElem" type="text" name="username"></input><br>
+							Password: <input class="formElem" type="password" name="password"></input><br><br>
+							New Post: <br><textarea name="blog-post" id="new-blog" class="formElem" form="uploadForm"></textarea><br>
+							<input class="formElem" type="submit" name="submit"></input>
+						</form>
+					</center>
 				</div>
 			</div>
 		</div>

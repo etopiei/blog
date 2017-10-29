@@ -18,6 +18,7 @@ require("./getPost.php");
 		</div>
 		<div id="content">
 			<div id="blog-text" class="shadow">
+				<br>
 				<div id="blog-text-offset">
 						<center>
 						<h4> Post History </h4>

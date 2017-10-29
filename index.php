@@ -20,7 +20,7 @@ $postNumber = update($postId);
 			</div>
 		</div>
 		<div id="content">
-			<div id="blog-text" class="shadow">
+			<div id="blog-text">
 			<?php getNavButtons($postNumber); ?>
 				<div id="blog-text-offset">
 					<?php 

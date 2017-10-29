@@ -77,10 +77,10 @@ if($files) {
 	$fileCount = count($files);
 }
 $fileCount += 1;
-$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$fileCount" . ".post"
+$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$fileCount" . ".post";
 
 //update meradata
-$metaName = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "metadata.post"
+$metaName = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "metadata.post";
 $metaFile = fopen($metaName, "r");
 $metaContents = fread($metaFile, filesize($metaName));
 $metaContents = $metaContents . "\n" . "$fileCount" . " " . "$title";

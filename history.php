@@ -17,7 +17,7 @@ require("./getPost.php");
 			</div>
 		</div>
 		<div id="content">
-			<div id="blog-text" class="shadow">
+			<div id="blog-text">
 				<br>
 				<div id="blog-text-offset">
 						<center>

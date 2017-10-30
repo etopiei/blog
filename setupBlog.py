@@ -27,6 +27,19 @@ def setTitles():
     myFile.write(output)
     myFile.close()
 
+    myFile = open("newPost.php", "r")
+    output = ""
+    for line in myFile:
+        if "Blog Title" in line:
+            output += "\n<h1>" + newTitle + " - " + newSubTitle + "</h1>"
+        else:
+            output += "\n" + line
+    myFile.close()
+
+    myFile = open("newPost.php", "w")
+    myFile.write(output)
+    myFile.close()
+
     myFile = open("history.php", "r")
     output = ""
     for line in myFile:
@@ -71,6 +84,28 @@ def changeSocialMediaLinks():
     myFile.write(output)
     myFile.close()
 
+    myFile = open("newPost.php", "r")
+    output = ""
+    for line in myFile:
+        if "GITHUB_LINK" in line:
+            output += "\n" + '<a href="' + github + '"><i class="fa fa-github"></i></a>'
+        elif "LINKEDIN_LINK" in line:
+            output += "\n" + '<a href="' + linkedIn + '"><i class="fa fa-linkedin"></i></a>'
+        elif "INSTAGRAM_LINK" in line:
+            output += "\n" + '<a href="' + instagram + '"><i class="fa fa-instagram"></i></a>'
+        elif "REDDIT_LINK" in line:
+            output += "\n" + '<a href="' + reddit + '"><i class="fa fa-reddit"></i></a>'
+        elif "TWITTER_LINK" in line:
+            output += "\n" + '<a href="' + twitter + '"><i class="fa fa-twitter"></i></a>'
+        else:
+            output += "\n" + line
+
+    myFile.close()
+
+    myFile = open("newPost.php", "w")
+    myFile.write(output)
+    myFile.close()
+
     myFile = open("history.php", "r")
     output = ""
     for line in myFile:
@@ -107,13 +142,13 @@ def setDatabaseCreds():
     output = ""
     for line in myFile:
         if "DATABASE_NAME" in line:
-            output += "\n$database=" + dbName + ";"
+            output += "\n$database='" + dbName + "';"
         elif "HOSTNAME" in line:
-            output += "\n$host = " +  hostName + ";"
+            output += "\n$host = '" +  hostName + "';"
         elif "DATABASE_USERNAME" in line:
-            output += "\n$databaseUsername=" + dbUsername + ";"
+            output += "\n$databaseUsername='" + dbUsername + "';"
         elif "DATABASE_PASSWORD" in line:
-            output += "\n$databasePassword= " + dbPassword + ";"
+            output += "\n$databasePassword= '" + dbPassword + "';"
         else:
             output += "\n" + line
 
@@ -127,13 +162,13 @@ def setDatabaseCreds():
     output = ""
     for line in myFile:
         if "DATABASE_NAME" in line:
-            output += "\n$database=" + dbName + ";"
+            output += "\n$database='" + dbName + "';"
         elif "HOSTNAME" in line:
-            output += "\n$host = " +  hostName + ";"
+            output += "\n$host = '" +  hostName + "';"
         elif "DATABASE_USERNAME" in line:
-            output += "\n$databaseUsername=" + dbUsername + ";"
+            output += "\n$databaseUsername='" + dbUsername + "';"
         elif "DATABASE_PASSWORD" in line:
-            output += "\n$databasePassword= " + dbPassword + ";"
+            output += "\n$databasePassword= '" + dbPassword + "';"
         else:
             output += "\n" + line
     

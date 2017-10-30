@@ -29,7 +29,7 @@ function printPostList() {
 			$currentTitle = $currentTitle . " " . $parts[$y];		
 		}
 		$postNumber = $x + 1;
-		echo "<a href='index.php?id=" . $postNumber . "'>" . $currentTitle . "</a>";
+		echo "<a href='index.php?id=" . $postNumber . "'>" . $currentTitle . "</a><br>";
 	}
 }
 

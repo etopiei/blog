@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div id="content">
-			<div id="blog-text" class="shadow">
+			<div id="blog-text">
 				<div id="upload-area">
 					<center>
 						<form id="uploadForm" action="upload.php" method="post">

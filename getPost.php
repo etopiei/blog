@@ -50,7 +50,7 @@ function getPost($postNumber) {
 		$title = getPostTitle($postNumber);
 		$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$postNumber" . ".post";
 		$myFile = fopen($filename, "r") or die ("Can't open file.");
-		echo "<h4>" . "$title" . "</h4>";
+		echo "<h2>" . "$title" . "</h2><br>";
 		echo fread($myFile, filesize($filename));
 		fclose($myFile);		
 	} else {

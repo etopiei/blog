@@ -6,7 +6,7 @@ The only dependencies are PHP and Python.
 
 Super simple and lightweight.
 
-## Install Instrcutions
+## Install Instructions
 
 To install locally/test:
 

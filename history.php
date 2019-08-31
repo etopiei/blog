@@ -11,8 +11,8 @@ require("./getPost.php");
 		<div id="top">
 			<div id="header-text">
 				<center>
-					<h1> Blog Title - Blog Subtitle </h1>
-					<h3><a href="index.php">Back Home</a></h3>
+					<h1> Blog Title </h1>
+					<h5> Blog Subtitle </h5>
 				</center>
 			</div>
 		</div>

@@ -8,7 +8,7 @@
 			<div id="header-text">
 				<center>
 					<h1> Blog Title </h1>
-					<h3> blog subtitle </h3>
+					<h3> Blog Subtitle </h3>
 				</center>
 			</div>
 		</div>

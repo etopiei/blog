@@ -44,7 +44,7 @@ Tbh the edit/writing system is very basic as I usually write my posts on disk an
  - [] Add RSS Feed
  - [] WYSIWYG Editor
  - [] Add import/export capabilities
- - [] Re-design
+ - [x] Re-design
 
 ## Any extra questions
 

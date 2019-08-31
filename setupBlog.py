@@ -8,7 +8,9 @@ def setTitles():
     output = ""
     for line in myFile:
         if "Blog Title" in line:
-            output += "\n<h1>" + newTitle + " - " + newSubTitle + "</h1>"
+            output += "\n<h1>" + newTitle + "</h1>"
+        elif "Blog Subtitle" in line:
+            output += "\n<h5>" + newSubTitle + "</h5>"
         else:
             output += "\n" + line
     myFile.close()
@@ -21,7 +23,9 @@ def setTitles():
     output = ""
     for line in myFile:
         if "Blog Title" in line:
-            output += "\n<h1>" + newTitle + " - " + newSubTitle + "</h1>"
+            output += "\n<h1>" + newTitle + "</h1>"
+        elif "Blog Subtitle" in line:
+            output += "\n<h5>" + newSubTitle + "</h5>"
         else:
             output += "\n" + line
     myFile.close()

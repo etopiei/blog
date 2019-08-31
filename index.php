@@ -14,8 +14,8 @@ $postNumber = update($postId);
 		<div id="top">
 			<div id="header-text">
 				<center>
-					<h1> Blog Title - Blog Subtitle </h1>
-					<h3><a href="history.php">Post History</a></h3>
+					<h1> Blog Title </h1>
+					<h5> Blog Subtitle </h5>
 				</center>
 			</div>
 		</div>
@@ -27,6 +27,9 @@ $postNumber = update($postId);
 					getPost($postNumber);
 					?>
 				</div>
+				<center>
+				<h3><a href="history.php">Post History</a></h3>
+				</center>
 			</div>
 		</div>
 		<div id="bottom">

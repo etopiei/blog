@@ -1,14 +1,4 @@
-import MySQLdb, sys, random, hashlib, getpass
-
-def doHash(password):
-    return hashlib.sha512(password.encode()).hexdigest()
-
-def getSalt():
-    ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    chars=[]
-    for i in range(32):
-        chars.append(random.choice(ALPHABET))
-    return "".join(chars)
+import sys, getpass
 
 def setTitles():
     newTitle = input("Enter a title for your blog: ")
@@ -131,26 +121,18 @@ def changeSocialMediaLinks():
     print("Social Media Links Fixed")
 
 def setDatabaseCreds():
-    hostName = input("Enter the hostname of your blog: ")
-    dbName = input("Enter the name of your MYSQL database: ")
-    dbUsername = input("Enter your MYSQL username: ")
-    dbPassword = getpass.getpass("Enter your MYSQL password: ")
     blogUsername = input("Enter a username for your blog: ")
     blogPassword = getpass.getpass("Enter a password for your blog: ")
 
     myFile = open("upload.php", "r")
     output = ""
     for line in myFile:
-        if "DATABASE_NAME" in line:
-            output += "\n$database='" + dbName + "';"
-        elif "HOSTNAME" in line:
-            output += "\n$host = '" +  hostName + "';"
-        elif "DATABASE_USERNAME" in line:
-            output += "\n$databaseUsername='" + dbUsername + "';"
-        elif "DATABASE_PASSWORD" in line:
-            output += "\n$databasePassword= '" + dbPassword + "';"
+        if "$BLOG_PASSWORD=" in line:
+            output += "\n$BLOG_PASSWORD='" + blogPassword + "';"
+        elif "$BLOG_USERNAME=" in line:
+            output += "\n$BLOG_USERNAME='" + blogUsername + "';"
         else:
-            output += "\n" + line
+            output += line
 
     myFile.close()
 
@@ -161,16 +143,12 @@ def setDatabaseCreds():
     myFile = open("edit.php", "r")
     output = ""
     for line in myFile:
-        if "DATABASE_NAME" in line:
-            output += "\n$database='" + dbName + "';"
-        elif "HOSTNAME" in line:
-            output += "\n$host = '" +  hostName + "';"
-        elif "DATABASE_USERNAME" in line:
-            output += "\n$databaseUsername='" + dbUsername + "';"
-        elif "DATABASE_PASSWORD" in line:
-            output += "\n$databasePassword= '" + dbPassword + "';"
+        if "$BLOG_PASSWORD=" in line:
+            output += "\n$BLOG_PASSWORD='" + blogPassword + "';"
+        elif "$BLOG_USERNAME=" in line:
+            output += "\n$BLOG_USERNAME='" + blogUsername + "';"
         else:
-            output += "\n" + line
+            output += line
     
     myFile.close()
     
@@ -178,36 +156,9 @@ def setDatabaseCreds():
     myFile.write(output)
     myFile.close()
     
-    return [hostName, dbName, dbUsername, dbPassword, blogUsername, blogPassword]
-
-def createTableForPassword(creds):
-    try:
-        db = MySQLdb.connect(creds[0], creds[2], creds[3], creds[1])
-        cur = db.cursor()
-    except:
-        print("Failed to connect to MYSQL database.")
-        sys.exit(1)
-
-    cur.execute("""CREATE TABLE Login (
-        Username VARCHAR(20) NOT NULL,
-        HashedPassword VARCHAR(128) NOT NULL, 
-        Salt VARCHAR(32) NOT NULL
-    )""")
-
-    salt = getSalt()
-    hashedPassword = doHash(creds[5]+salt)
-    try:
-        cur.execute("INSERT INTO Login (Username, HashedPassword, Salt) VALUES ('" + creds[4] + "', '" + hashedPassword + "', '" + salt + "')")
-        db.commit()
-    except:
-        db.rollback()
-    db.close()
-    print("Data in database, blog is ready to use.")
-    
 def run():
     setTitles()
     changeSocialMediaLinks()
-    creds = setDatabaseCreds()
-    createTableForPassword(creds)
+    setDatabaseCreds()
 
 run()

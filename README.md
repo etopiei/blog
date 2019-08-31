@@ -1,39 +1,50 @@
 # blog
 
 The software behind my blog.
-Running PHP and MYSQL in the backend.
+
+The only dependencies are PHP and Python.
+
 Super simple and lightweight.
 
 ## Install Instrcutions
 
-First install Apache and MYSQL then clone the blog to the server:
+To install locally/test:
 
-	$ cd /var/www/html/
-	$ git clone git@github.com:etopiei/blog.git . 
-
-Before you begin setup you must create a mysql database for the blog
-
-	$ mysql -u USERNAME -p PASSWORD
-	mysql> CREATE DATABASE DATABASENAME;
-
-Make sure you take note of the MYSQL username and password as well as the database name. 
-
-## Dependencies for set-up script
-
-Make sure you have python3 installed and then run:
-
-	$ sudo pip3 install mysqlclient
-
-Now Run setup script:
-
+	$ git clone git@github.com:etopiei/blog.git
+	$ cd blog
 	$ python3 setupBlog.py
 
-Answer the questions of the install script and it will set up the blog.
+	Answer the questions of the install script and it will set up the blog.
+
+	$ php -S localhost:8000
+
+Then you can view/use the blog on http://localhost:8000
+
+For installing to a server running apache:
+
+	$ cd /var/www/html
+	$ git clone git@github.com:etopiei/blog.git . 
+	$ python3 setupBlog.py
+
+	Answer the questions of the install script and it will set up the blog.
 
 ## Writing Posts
 
-Now just write posts in Vanilla HTML at: host.com/newPost.php
+Now just write posts in Vanilla HTML at: `/newPost.php`
+
 The blog will be updated accordingly.
+
+Edit posts at: `/editPost.html` you must first enter your U/P to access the enter edit mode, then enter them again, along with your changes to submit.
+
+Tbh the edit/writing system is very basic as I usually write my posts on disk and then just upload new posts. manually. But this can be improved with time.
+
+## Development Goals
+
+ - [x] Remove MYSQL dependency
+ - [] Add RSS Feed
+ - [] WYSIWYG Editor
+ - [] Add import/export capabilities
+ - [] Re-design
 
 ## Any extra questions
 

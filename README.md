@@ -43,6 +43,7 @@ Tbh the edit/writing system is very basic as I usually write my posts on disk an
  - [x] Remove MYSQL dependency
  - [] Add RSS Feed
  - [] WYSIWYG Editor
+ - [] Add image upload capabilites to editor
  - [] Add import/export capabilities
  - [x] Re-design
 

@@ -21,14 +21,14 @@ $postNumber = update($postId);
 		</div>
 		<div id="content">
 			<div id="blog-text">
-			<?php getNavButtons($postNumber); ?>
 				<div id="blog-text-offset">
 					<?php 
 					getPost($postNumber);
 					?>
 				</div>
+				<?php getNavButtons($postNumber); ?>
 				<center>
-				<h3><a href="history.php">Post History</a></h3>
+					<h3><a href="history.php">Post History</a></h3>
 				</center>
 			</div>
 		</div>

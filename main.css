@@ -18,11 +18,10 @@
 
 #content {
 	width: 100%;
-	height: calc(100% - 6.5em);
 	color: white;
 	background-color: #2d2d2d;
 	padding-bottom: 20px;
-	overflow: hidden;
+	margin-top: -10px;
 }
 
 #blog-text {

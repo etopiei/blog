@@ -25,10 +25,11 @@
 }
 
 #blog-text {
-	width: 80%;
+	width: 95%;
 	background-color: #2d2d2d;
 	color: white;
-	margin-left: 10%;
+	margin: auto;
+	max-width: 800px;
 }
 
 #blog-text-offset {
@@ -37,6 +38,7 @@
 	padding-right: 10%;
 	width: 80%;
 	margin-top: 0.5em;
+	margin-bottom: 2em;
 	background-color: #2d2d2d;
 	color: white;
 	font-size: 20px;

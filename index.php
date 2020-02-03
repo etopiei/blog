@@ -1,13 +1,16 @@
 <?php 
 require("./getPost.php");
-$postId = $_GET['id'];
+$postId = 1;
+if (isset($_GET['id'])) {
+	$postId = $_GET['id'];
+}
 $postNumber = 0;
 $postNumber = update($postId);
 ?>
 
 <html>
 	<head>
-		<link href="main.css" rel="Stylesheet" type="text/css">
+		<link href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/main.css" rel="Stylesheet" type="text/css">
 		<script src="https://use.fontawesome.com/9afece952d.js"></script>
 	</head>
 	<body>
@@ -23,12 +26,17 @@ $postNumber = update($postId);
 			<div id="blog-text">
 				<div id="blog-text-offset">
 					<?php 
-					getPost($postNumber);
+					if (preg_match('/post\/(\d+)/', $_SERVER['REQUEST_URI'], $matches)) {
+						getPost($matches[1]);
+					} else {
+						header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . '/post/' . $postNumber);
+						exit();
+					}
 					?>
 				</div>
 				<?php getNavButtons($postNumber); ?>
 				<center>
-					<h3><a href="history.php">Post History</a></h3>
+					<h3><a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/history.php">Post History</a></h3>
 				</center>
 			</div>
 		</div>

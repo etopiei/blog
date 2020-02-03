@@ -10,11 +10,11 @@ function getNavButtons($postNumber) {
 		}
 		if($postNumber != 1) {
 			$prevPost = $postNumber - 1;
-			echo "<a id='prev-link' href='index.php?id=" . $prevPost . "'> < Previous Post </a>";			
+			echo "<a id='prev-link' href='http://" . $_SERVER['HTTP_HOST'] . "/post/" . $prevPost . "'> < Previous Post </a>";			
 		}
 		if($postNumber != $fileCount-1) {
 			$nextPost = $postNumber + 1;
-			echo "<a id='next-link' href='index.php?id=" . $nextPost . "'> Next Post > </a>"; 		
+			echo "<a id='next-link' href='http://" . $_SERVER['HTTP_HOST'] . "/post/" . $nextPost . "'> Next Post > </a>"; 		
 		}
 	}
 }
@@ -29,7 +29,7 @@ function printPostList() {
 			$currentTitle = $currentTitle . " " . $parts[$y];		
 		}
 		$postNumber = $x + 1;
-		echo "<a href='index.php?id=" . $postNumber . "'>" . $currentTitle . "</a><br>";
+		echo "<a href='/post/" . $postNumber . "'>" . $currentTitle . "</a><br>";
 	}
 }
 

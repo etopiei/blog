@@ -45,6 +45,24 @@ function getPostTitle($postNumber) {
 	return $title;
 }
 
+function getPostDescription($postNumber) {
+	$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/description.post";
+	$lines = file($filename);
+	$postString = $lines[$postNumber-1];
+	$words = preg_split('/\s+/', $postString, -1, PREG_SPLIT_NO_EMPTY);
+	$desc = "";
+	for($x = 1; $x < sizeof($words); $x++) {
+		$desc = $desc . " " . $words[$x];
+	}
+	return $desc;
+}
+
+function getNumberOfPosts() {
+	$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/metadata.post";
+	$lines = file($filename);
+	return sizeof($lines);
+}
+
 function getPost($postNumber) {
 	if($postNumber != 0) {
 		$title = getPostTitle($postNumber);

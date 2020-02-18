@@ -14,39 +14,21 @@ To install locally/test:
 	$ cd blog
 	$ python3 setupBlog.py
 
-	Answer the questions of the install script and it will set up the blog.
-
-	$ php -S localhost:8000
-
-Then you can view/use the blog on http://localhost:8000
-
-For installing to a server running apache:
-
-	$ cd /var/www/html
-	$ git clone git@github.com:etopiei/blog.git . 
-	$ python3 setupBlog.py
-
-	Answer the questions of the install script and it will set up the blog.
+Answer the questions of the install script and it will set up the blog.
 
 ## Writing Posts
 
-Now just write posts in Vanilla HTML at: `/newPost.php`
+Now just write posts in Vanilla HTML and save them to the `posts` directory (with the name `1.post`, `2.post` etc.).
 
-The blog will be updated accordingly.
-
-Edit posts at: `/editPost.html` you must first enter your U/P to access the enter edit mode, then enter them again, along with your changes to submit.
-
-Tbh the edit/writing system is very basic as I usually write my posts on disk and then just upload new posts. manually. But this can be improved with time.
+Then update the corresponding `metadata.post` and `description.post` files, so that the RSS feed can be filled in. 
 
 ## Development Goals
 
  - [x] Remove MYSQL dependency
- - [] Add RSS Feed
- - [] WYSIWYG Editor
- - [] Add image upload capabilites to editor
- - [] Add import/export capabilities
+ - [x] Add RSS Feed
  - [x] Re-design
  - [] Comment Section
+ - [x] Redo Routing API to make RSS easier and site nicer (needs to be backwards compatible though)
 
 ## Any extra questions
 

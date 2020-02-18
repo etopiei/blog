@@ -1,11 +1,9 @@
 <?php 
 require("./getPost.php");
-$postId = 1;
-if (isset($_GET['id'])) {
-	$postId = $_GET['id'];
-}
 $postNumber = 0;
-$postNumber = update($postId);
+if (isset($_GET['id'])) {
+	$postNumber = update($_GET['id']);
+}
 ?>
 
 <html>
@@ -28,7 +26,9 @@ $postNumber = update($postId);
 					<?php 
 					if (preg_match('/post\/(\d+)/', $_SERVER['REQUEST_URI'], $matches)) {
 						getPost($matches[1]);
+						$postNumber = $matches[1];
 					} else {
+						$postNumber = getNumberOfPosts();
 						header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . '/post/' . $postNumber);
 						exit();
 					}

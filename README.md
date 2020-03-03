@@ -2,9 +2,7 @@
 
 The software behind my blog.
 
-The only dependencies are PHP and Python.
-
-Super simple and lightweight.
+The only dependency is PHP.
 
 ## Install Instructions
 
@@ -12,9 +10,8 @@ To install locally/test:
 
 	$ git clone git@github.com:etopiei/blog.git
 	$ cd blog
-	$ python3 setupBlog.py
 
-Answer the questions of the install script and it will set up the blog.
+Edit the constants in `constants.php` and you are good to go.
 
 ## Writing Posts
 
@@ -22,12 +19,24 @@ Now just write posts in Vanilla HTML and save them to the `posts` directory (wit
 
 Then update the corresponding `metadata.post` and `description.post` files, so that the RSS feed can be filled in. 
 
+The format of `metadata.post` is that each line should contain:
+
+```
+<unix_timestamp> <post title>
+```
+
+eg:
+
+```
+1485475200 Welcome to my blog
+```
+
 ## Development Goals
 
  - [x] Remove MYSQL dependency
  - [x] Add RSS Feed
  - [x] Re-design
- - [] Comment Section
+ - [ ] Comment Section
  - [x] Redo Routing API to make RSS easier and site nicer (needs to be backwards compatible though)
 
 ## Any extra questions

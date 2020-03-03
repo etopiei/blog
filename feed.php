@@ -1,19 +1,18 @@
 <?php
 
-require('getPost.php');
+require('./getPost.php');
+require('./constants.php');
 
-$title="TITLE_HERE";
-$subtitle="SUB_HERE";
-$url="URL_HERE";
+header('Content-Type: application/rss+xml; charset=utf-8');
 
 echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
 echo '<rss version="2.0">';
 echo '<channel>';
 echo '<title>' . $title . '</title>';
-echo '<link>' . $url . '</link>';
+echo '<link>' . $base . '</link>';
 echo '<description>' . $subtitle . '</description>';
 echo '<language>en-us</language>';
-echo '<copyright> Copyright (C) 2020 "' . $url . '"</copyright>';
+echo '<copyright> Copyright (C) 2020 "' . $base . '"</copyright>';
 
     // Here iterate over all posts and create an item for them in feed.
     $num_posts = getNumberOfPosts();
@@ -21,7 +20,8 @@ echo '<copyright> Copyright (C) 2020 "' . $url . '"</copyright>';
         echo '<item>';
         echo '<title>' . getPostTitle($x + 1) . '</title>';
         echo '<description>' . getPostDescription($x + 1) . '</description>';
-        echo '<link>' . $url . '/post/' . ($x + 1) . '</link>';
+        echo '<pubDate>' . date('r', getPostTime($x + 1)->getTimestamp()) . '</pubDate>';
+        echo '<link>' . $base . '/post/' . ($x + 1) . '</link>';
         echo '</item>';
     }
 

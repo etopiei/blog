@@ -69,16 +69,18 @@ function getNumberOfPosts() {
 }
 
 function getPost($postNumber) {
+	$result = "";
 	if($postNumber != 0 && $postNumber <= getNumberOfPosts()) {
 		$title = getPostTitle($postNumber);
 		$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/" . "$postNumber" . ".post";
 		$myFile = fopen($filename, "r") or die ("Can't open file.");
-		echo "<h2>" . "$title" . "</h2><br>";
-		echo fread($myFile, filesize($filename));
+		$result .= "<h2>" . "$title" . "</h2><br>";
+		$result .= fread($myFile, filesize($filename));
 		fclose($myFile);		
 	} else {
-		echo "No blog posts yet. Check back soon!";		
+		$result .= "No blog posts yet. Check back soon!";		
 	}
+	return $result;
 }
 
 function update($postId) {

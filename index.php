@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 				<div id="blog-text-offset">
 					<?php 
 					if (preg_match('/post\/(\d+)/', $_SERVER['REQUEST_URI'], $matches)) {
-						getPost($matches[1]);
+						echo getPost($matches[1]);
 						$postNumber = $matches[1];
 					} else {
 						$postNumber = getNumberOfPosts();

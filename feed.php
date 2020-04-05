@@ -19,7 +19,8 @@ echo '<copyright> Copyright (C) 2020 "' . $base . '"</copyright>';
 	for($x = 0; $x < $num_posts; $x++) {
         echo '<item>';
         echo '<title>' . getPostTitle($x + 1) . '</title>';
-        echo '<description>' . getPostDescription($x + 1) . '</description>';
+	echo '<description>' . getPostDescription($x + 1) . '</description>';
+	echo '<content:encoded><![CDATA[' . getPost($x + 1) . ']]></content:encoded>';
         echo '<pubDate>' . date('r', getPostTime($x + 1)->getTimestamp()) . '</pubDate>';
         echo '<link>' . $base . '/post/' . ($x + 1) . '</link>';
         echo '</item>';

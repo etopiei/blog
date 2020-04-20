@@ -13,6 +13,10 @@ To install locally/test:
 
 Edit the constants in `constants.php` and you are good to go.
 
+## Enabling Comments
+
+To enable comments setup [utterances](http://utteranc.es) on a public github repo and set the flag to true and add necessary details in `constants.php`
+
 ## Writing Posts
 
 Now just write posts in Vanilla HTML and save them to the `posts` directory (with the name `1.post`, `2.post` etc.).
@@ -36,7 +40,7 @@ eg:
  - [x] Remove MYSQL dependency
  - [x] Add RSS Feed
  - [x] Re-design
- - [ ] Comment Section
+ - [x] Comment Section
  - [x] Redo Routing API to make RSS easier and site nicer (needs to be backwards compatible though)
 
 ## Any extra questions

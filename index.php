@@ -22,7 +22,19 @@ if (isset($_GET['id'])) {
 					}
 					?>
 				</div>
-				<?php getNavButtons($postNumber); ?>
+				<?php 
+					getNavButtons($postNumber);
+					if ($comments_enabled) {
+						echo '
+						<script src="https://utteranc.es/client.js"
+						repo="' . $repo_ref . '"
+						issue-term="' . getPostTitle($postNumber) . '"
+						theme="github-dark"
+						crossorigin="anonymous"
+						async>
+						</script>';
+					}
+				?>
 				<center>
 					<h3><a href="<?php echo $base; ?>/history.php">Post History</a></h3>
 				</center>

@@ -8,3 +8,4 @@
 			</center>
 		</div>
 	</body>
+<script>hljs.initHighlightingOnLoad();</script>

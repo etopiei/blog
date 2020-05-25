@@ -19,7 +19,7 @@ function getNavButtons($postNumber) {
 function printPostList() {
 	$filename = $_SERVER['DOCUMENT_ROOT'] . "/posts/metadata.post";
 	$lines = file($filename);
-	for($x = 0; $x < sizeof($lines); $x++) {
+	for($x = sizeof($lines) - 1; $x >= 0; $x--) {
 		$currentTitle = "";
 		$parts = preg_split('/\s+/', $lines[$x], -1, PREG_SPLIT_NO_EMPTY);
 		for($y = 1; $y < sizeof($parts); $y++) {

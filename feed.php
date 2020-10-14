@@ -14,9 +14,13 @@ echo '<description>' . $subtitle . '</description>';
 echo '<language>en-us</language>';
 echo '<copyright> Copyright (C) 2020 "' . $base . '"</copyright>';
 
-    // Here iterate over all posts and create an item for them in feed.
+    // Here iterate over the 10 most recent posts (or all the posts, whichever is smaller) and create an item for them in feed.
     $num_posts = getNumberOfPosts();
-	for($x = 0; $x < $num_posts; $x++) {
+    $start = 0;
+    if ($num_posts > 10) {
+        $start = $num_posts - 9;
+    }
+	for($x = $start; $x < $num_posts; $x++) {
         echo '<item>';
         echo '<title>' . getPostTitle($x + 1) . '</title>';
         echo '<description>' . getPostDescription($x + 1) . '</description>';
